@@ -1,0 +1,6 @@
+---
+- hosts: localhost
+  become: true
+  roles:
+    - alain_mariathas.docker_role   
+    - wordpress_role
