@@ -1,8 +1,5 @@
 ---
 # tasks file for wordpress_role
-- name: Create a network
-  docker_network:
-    name: "{{ connection_network }}"
 
 - name: start mariadb containers
   docker_container:
@@ -35,6 +32,10 @@
       - "{{ mariadb_container_name }}:mysql_host"
     volumes:
       - wordpressData:/var/www/html
+      
+- name: Create a network
+  docker_network:
+    name: "{{ connection_network }}"
 
 - name: Add containers into a network
   docker_network:
